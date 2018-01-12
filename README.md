@@ -6,31 +6,15 @@ One Paragraph of project description goes here
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Installing Prerequisites
 
-What things you need to install the software and how to install them
+Libraries needed to be installed to run this project (For Windows and Linux):
 
-```
-Give examples
-```
+1. [Tensorflow](https://www.tensorflow.org/) library , open source numerical computation library very efficient for fast numerical computation can run in your CPU and GPU.
+2. [Theano](http://deeplearning.net/software/theano/) library , also open source numerical computation library very efficient for fast numerical computation can run in your CPU and GPU.
+3. [Keras](http://deeplearning.net/software/theano/) library , wraps both Theano and Tensorflow libraries together.
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+[Installing Tensorflow tutorial](https://www.youtube.com/watch?v=gWfVwnOyG78) by Codacus on youtube, this tutorial uses anaconda navigator to create a new python environment and it is the same process to install Theano and Keras libraries. 
 
 ## Running the tests
 
@@ -70,4 +54,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Hat tip to anyone who's code was used
 * Inspiration
-* etc
+* Codacus for the tensorflow enviroment install tutorial

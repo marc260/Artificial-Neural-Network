@@ -16,6 +16,15 @@ Libraries needed to be installed to run this project (For Windows and Linux):
 
 [Installing Tensorflow tutorial](https://www.youtube.com/watch?v=gWfVwnOyG78) by Codacus on youtube, this tutorial uses anaconda navigator to create a new python environment and it is the same process to install Theano and Keras libraries. 
 
+To make sure that tensorflow has been installed correctly try the following:
+```
+import tensorflow as tf
+
+hello = tf.constant('Hellow, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+```
+
 ## Running the tests
 
 Explain how to run the automated tests for this system

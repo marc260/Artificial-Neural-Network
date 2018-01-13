@@ -1,6 +1,6 @@
 # Artificial-Neural-Network
 
-This project analyses a fake bank dataset. called [Churn_Modelling.csv](Artificial-Neural-Network/Churn_Modelling.csv). 
+This project analyses a fake bank dataset. called [Churn_Modelling.csv](Churn_Modelling.csv). 
 This dataset has a large sample of this fake bank's customers. The dataset includes customer id, credit score, 
 gender, age, tenure, balance, activeness, credit card, etc. The goal of this Artificial Neural Network (ANN) is 
 to predict based on the dataset given, if a customer will leave the bank or stay (the probability). The ANN will be trained with 
@@ -68,7 +68,7 @@ As you can see at Epoch 100 we get an accuracy of __83.45%__
 
 When the confusion matrix was made these were the results:
 
-![alt text](..//cm.png "Confusion Matrix")
+![cm](cm.png "Confusion Matrix")
 
 From the confusion matrix above, out of 2000 new observations we have:
 ```

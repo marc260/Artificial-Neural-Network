@@ -1,6 +1,6 @@
 # Artificial-Neural-Network
 
-One Paragraph of project description goes here
+This project analyses a fake bank dataset. This data set 
 
 ## Getting Started
 

@@ -1,7 +1,5 @@
 # Artificial Neural Network
 
-# Data Preprocessing
-
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,6 +7,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.metrics import confusion_matrix
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+# Data Preprocessing
 
 # Importing the dataset
 dataset = pd.read_csv('Churn_Modelling.csv')
@@ -40,3 +43,16 @@ sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
+# Initializing the ANN
+classifier = Sequential()
+
+
+
+# Predicting the Test set results
+y_pred = classifier.predict(x_test)
+
+# Evaluate if the Logistic Regression model learned and understood
+# correctly the correlations in the training set
+# the Confusion Matrix will contain the correct and incorrect predictions made in the test set
+# Making the Confusion Matrix
+cm = confusion_matrix(y_test, y_pred)

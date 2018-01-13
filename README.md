@@ -33,7 +33,7 @@ print(sess.run(hello))
 
 ## Fitting the ANN to the Training set
 
-Compiling the [ann.py](link) file will train the ANN and give the following results
+Compiling the [ann.py](ann.py) file will train the ANN and give the following results
 
 When using
 
@@ -85,10 +85,8 @@ This means that in new observations, where we did not train the ANN we get an ac
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
 * Codacus for the tensorflow enviroment install tutorial

@@ -31,35 +31,57 @@ sess = tf.Session()
 print(sess.run(hello))
 ```
 
-## Running the tests
+## Fitting the ANN to the Training set
 
-Explain how to run the automated tests for this system
+Compiling the [ann.py](link) file will train the ANN and give the following results
 
-### Break down into end to end tests
+When using
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```python
+batch_size= 10
+epochs= 100
 ```
 
-## Deployment
+When we apply Stochastic Gradient Descent to the ANN and fit to the training set the results are the following:
 
-Add additional notes about how to deploy this on a live system
+```
+  10/8000 [..............................] - ETA: 0s - loss: 0.4617 - acc: 0.7000
+ 650/8000 [=>............................] - ETA: 0s - loss: 0.3838 - acc: 0.8446
+1300/8000 [===>..........................] - ETA: 0s - loss: 0.4007 - acc: 0.8377
+1930/8000 [======>.......................] - ETA: 0s - loss: 0.4088 - acc: 0.8311
+2550/8000 [========>.....................] - ETA: 0s - loss: 0.3943 - acc: 0.8392
+3180/8000 [==========>...................] - ETA: 0s - loss: 0.3917 - acc: 0.8403
+3820/8000 [=============>................] - ETA: 0s - loss: 0.3960 - acc: 0.8361
+4460/8000 [===============>..............] - ETA: 0s - loss: 0.3989 - acc: 0.8357
+5090/8000 [==================>...........] - ETA: 0s - loss: 0.4021 - acc: 0.8334
+5710/8000 [====================>.........] - ETA: 0s - loss: 0.4040 - acc: 0.8343
+6360/8000 [======================>.......] - ETA: 0s - loss: 0.4017 - acc: 0.8352
+6990/8000 [=========================>....] - ETA: 0s - loss: 0.4019 - acc: 0.8349
+7630/8000 [===========================>..] - ETA: 0s - loss: 0.3994 - acc: 0.8351
+8000/8000 [==============================] - 1s 79us/step - loss: 0.3993 - acc: 0.8345
+Epoch 100/100
+```
 
-## Built With
+As you can see at Epoch 100 we get an accuracy of __83.45%__
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+### Predicting the Test set results
+
+When the confusion matrix was made these were the results:
+
+![alt text](..//cm.png "Confusion Matrix")
+
+From the confusion matrix above, out of 2000 new observations we have:
+```
+1544 + 140 = 1684 correct predictions
+265 + 51 = 316 incorect predictions
+```
+
+To get the accuracy we do:
+```
+1544 + 140 / 2000 = 0.842
+```
+
+This means that in new observations, where we did not train the ANN we get an accuracy of __84.2%!!__
 
 ## License
 

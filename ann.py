@@ -49,18 +49,18 @@ classifier = Sequential()
 # Adding input layer and the first hidden layer
 # 1)Number of nodes in the input layer = 11 (number of independent variables input_dim = 11)
 # 2)Number of nodes in the output layer = 1 (dependent variable has 1 or 0 outcome)
-# Avg of 1) and 2) = 11 + 1 / (2) = 6, output_dim=6
+# Avg of 1) and 2) = 11 + 1 / (2) = 6, units=6
 # initialize the weights randomly but close to zero init= 'uniform'
 # Activation function used on the hidden layer is going to be rectifier activation function = 'relu'
-classifier.add(Dense(output_dim= 6, init= 'uniform', activation= 'relu', input_dim= 11))
+classifier.add(Dense(units= 6, kernel_initializer= 'uniform', activation= 'relu', input_dim= 11))
 
 # Adding the second hidden layer, second layer already knows to expect 11 input nodes so input_dim not necessary
-classifier.add(Dense(output_dim= 6, init= 'uniform', activation= 'relu'))
+classifier.add(Dense(units= 6, kernel_initializer= 'uniform', activation= 'relu'))
 
 # Adding output layer
-# Dependent variable is a categorical number with a binary outcome so output_dim= 1
+# Dependent variable is a categorical number with a binary outcome so units= 1
 # Activation function used on the output layer to get a probability is going to be sigmoid
-classifier.add(Dense(output_dim= 1, init= 'uniform', activation= 'sigmoid'))
+classifier.add(Dense(units= 1, kernel_initializer= 'uniform', activation= 'sigmoid'))
 
 # Compiling the ANN = applying Stochastic Gradient Descent to the ANN
 # Stochastic Gradient Descent algorithm => optimizer='adam'
@@ -70,13 +70,19 @@ classifier.compile(optimizer= 'adam', loss = 'binary_crossentropy', metrics= ['a
 # Fitting the ANN to the Training set
 # batch size => 10
 # number epoch => 100 (rounds)
-classifier.fit(x_train, y_train, batch_size= 10, nb_epoch= 100)
+classifier.fit(x_train, y_train, batch_size= 10, epochs= 100)
 
 # Predicting the Test set results
+# Returns the probability that the customers leave the bank
 y_pred = classifier.predict(x_test)
+# but we need only true or false (leaves or not)
+y_pred = (y_pred > 0.5)
+
 
 # Evaluate if the Logistic Regression model learned and understood
 # correctly the correlations in the training set
 # the Confusion Matrix will contain the correct and incorrect predictions made in the test set
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
+
+# Compute the accuracy based on the test set

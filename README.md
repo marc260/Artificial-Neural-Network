@@ -1,10 +1,15 @@
 # Artificial-Neural-Network
 
-This project analyses a fake bank dataset. called [Churn_Modelling.csv](Artificial-Neural-Network/Churn_Modelling.csv). This dataset has a large sample of this fake bank's customers. The dataset includes customer id, credit score, gender, age, tenure, balance, activeness, credit card, etc. The goal of this Artificial Neural Network (ANN) is to predict based on the dataset given, if a customer will leave the bank or stay. 
+This project analyses a fake bank dataset. called [Churn_Modelling.csv](Artificial-Neural-Network/Churn_Modelling.csv). 
+This dataset has a large sample of this fake bank's customers. The dataset includes customer id, credit score, 
+gender, age, tenure, balance, activeness, credit card, etc. The goal of this Artificial Neural Network (ANN) is 
+to predict based on the dataset given, if a customer will leave the bank or stay (the probability). The ANN will be trained with 
+Stochastic Gradient Descent.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and 
+testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Installing Prerequisites
 
@@ -14,7 +19,8 @@ Libraries needed to be installed to run this project (For Windows and Linux):
 2. [Theano](http://deeplearning.net/software/theano/) library , also open source numerical computation library very efficient for fast numerical computation can run in your CPU and GPU.
 3. [Keras](http://deeplearning.net/software/theano/) library , wraps both Theano and Tensorflow libraries together.
 
-[Installing Tensorflow tutorial](https://www.youtube.com/watch?v=gWfVwnOyG78) by Codacus on youtube, this tutorial uses anaconda navigator to create a new python environment and it is the same process to install Theano and Keras libraries. 
+[Installing Tensorflow tutorial](https://www.youtube.com/watch?v=gWfVwnOyG78) by Codacus on youtube, this 
+tutorial uses anaconda navigator to create a new python environment and it is the same process to install Theano and Keras libraries. 
 
 To make sure that tensorflow has been installed correctly try the following:
 ```python

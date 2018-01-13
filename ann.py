@@ -30,12 +30,12 @@ x[:, 2] = label_encoder_x_gender.fit_transform(x[:, 2]) # gender is the third co
 
 # Create dummy variables
 # in this case we only need to create dummy variables for country since country has 3 values and gender 2
-one_hot_encoder = OneHotEncoder(categorical_features = [1])
+one_hot_encoder = OneHotEncoder(categorical_features= [1])
 x = one_hot_encoder.fit_transform(x).toarray()
 x = x[:, 1:] # remove one dummy variable from country, now country and gender have 2 encoded values each
 
 # Splitting the dataset into the Training set and Test set
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 0)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size= 0.2, random_state= 0)
 
 # Feature Scaling
 # Necessary since we will have many calculations and we do not want a independent variable dominating another
@@ -43,10 +43,34 @@ sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
-# Initializing the ANN
+# Initializing the ANN, no layers yet
 classifier = Sequential()
 
+# Adding input layer and the first hidden layer
+# 1)Number of nodes in the input layer = 11 (number of independent variables input_dim = 11)
+# 2)Number of nodes in the output layer = 1 (dependent variable has 1 or 0 outcome)
+# Avg of 1) and 2) = 11 + 1 / (2) = 6, output_dim=6
+# initialize the weights randomly but close to zero init= 'uniform'
+# Activation function used on the hidden layer is going to be rectifier activation function = 'relu'
+classifier.add(Dense(output_dim= 6, init= 'uniform', activation= 'relu', input_dim= 11))
 
+# Adding the second hidden layer, second layer already knows to expect 11 input nodes so input_dim not necessary
+classifier.add(Dense(output_dim= 6, init= 'uniform', activation= 'relu'))
+
+# Adding output layer
+# Dependent variable is a categorical number with a binary outcome so output_dim= 1
+# Activation function used on the output layer to get a probability is going to be sigmoid
+classifier.add(Dense(output_dim= 1, init= 'uniform', activation= 'sigmoid'))
+
+# Compiling the ANN = applying Stochastic Gradient Descent to the ANN
+# Stochastic Gradient Descent algorithm => optimizer='adam'
+# loss function => logarithmic loss function, dependent variable has a binary outcome so, loss = 'binary_crossentropy'
+classifier.compile(optimizer= 'adam', loss = 'binary_crossentropy', metrics= ['accuracy'])
+
+# Fitting the ANN to the Training set
+# batch size => 10
+# number epoch => 100 (rounds)
+classifier.fit(x_train, y_train, batch_size= 10, nb_epoch= 100)
 
 # Predicting the Test set results
 y_pred = classifier.predict(x_test)

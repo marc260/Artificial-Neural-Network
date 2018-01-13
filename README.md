@@ -1,6 +1,6 @@
 # Artificial-Neural-Network
 
-This project analyses a fake bank dataset. This data set 
+This project analyses a fake bank dataset. called [Churn_Modelling.csv](Artificial-Neural-Network/Churn_Modelling.csv). This dataset has a large sample of this fake bank's customers. The dataset includes customer id, credit score, gender, age, tenure, balance, activeness, credit card, etc. The goal of this Artificial Neural Network (ANN) is to predict based on the dataset given, if a customer will leave the bank or stay. 
 
 ## Getting Started
 

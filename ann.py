@@ -6,28 +6,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
+from sklearn.metrics import confusion_matrix
 
 # Importing the dataset
-dataset = pd.read_csv('Social_Network_Ads.csv')
-X = dataset.iloc[:, [2, 3]].values
-y = dataset.iloc[:, 4].values
+dataset = pd.read_csv('Churn_Modelling.csv')
+
+# Getting independent variables that have an impact on the depended variable (in this case Exited)
+x = dataset.iloc[:, 3:13].values # Include Indexes from 3 to 12 (independent variables)
+y = dataset.iloc[:, 13].values # (dependent variable)
+
+# Encoding categorical data
+# Encodes strings in the data into numbers and etc (in this case, country and gender into 1s and 0s)
+# Encoding the Independent Variable
+label_encoder_x_country = LabelEncoder() # label for country column
+x[:, 1] = label_encoder_x_country.fit_transform(x[:, 1]) # country is the second column (index 1)
+label_encoder_x_gender = LabelEncoder() # label for gender column
+x[:, 2] = label_encoder_x_gender.fit_transform(x[:, 2]) # gender is the third column (index 2)
+
+# Create dummy variables
+# in this case we only need to create dummy variables for country since country has 3 values and gender 2
+one_hot_encoder = OneHotEncoder(categorical_features = [1])
+x = one_hot_encoder.fit_transform(x).toarray()
+x = x[:, 1:] # remove one dummy variable from country, now country and gender have 2 encoded values each
 
 # Splitting the dataset into the Training set and Test set
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 0)
 
 # Feature Scaling
-from sklearn.preprocessing import StandardScaler
+# Necessary since we will have many calculations and we do not want a independent variable dominating another
 sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
+x_train = sc.fit_transform(x_train)
+x_test = sc.transform(x_test)
 
-# Fitting classifier to the Training set
-# Create your classifier here
-
-# Predicting the Test set results
-y_pred = classifier.predict(X_test)
-
-# Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)

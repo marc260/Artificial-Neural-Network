@@ -31,11 +31,11 @@ sess = tf.Session()
 print(sess.run(hello))
 ```
 
-## Fitting the ANN to the Training set
+## Testing
 
-Compiling the [ann.py](ann.py) file will train the ANN and give the following results
+### Fitting the ANN to the Training set
 
-When using
+Compiling the [ann.py](ann.py) file will train the ANN and give the following results when using:
 
 ```python
 batch_size= 10
@@ -83,7 +83,7 @@ To get the accuracy we do:
 
 This means that in new observations, where we did not train the ANN we get an accuracy of __84.2%!!__
 
-#### Predicting a single new observation
+### Predicting a single new observation
 
 This time a single new observation was entered as the following:
 
@@ -102,7 +102,7 @@ Salary:         $50000
 
 The prediction was that such costumer would __not__ leave the bank.
 
-#### K-fold cross validation
+### K-fold cross validation
 
 Apparently, when running [ann.py](ann.py) multiple times we get different accuracies ranging from 82% to 87%. 
 To avoid that [ann-k-fold.py](ann-k-fold.py) comes into play. Using k-fold cross validation it can fix this variance problem.

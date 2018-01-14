@@ -104,7 +104,9 @@ The prediction was that such costumer would __not__ leave the bank.
 
 #### K-fold cross validation
 
-Apparently, when running [ann.py](ann.py) multiple times we get different accuracies ranging from 82% to 87%. To avoid that [ann-k-fold.py](ann-k-fold.py) comes into play. 
+Apparently, when running [ann.py](ann.py) multiple times we get different accuracies ranging from 82% to 87%. 
+To avoid that [ann-k-fold.py](ann-k-fold.py) comes into play. Using k-fold cross validation it can fix this variance problem.
+In this case, it splits the training set into 10 fold, and the ANN is trained in 9 fold and it is tested in the last fold.
 
 Relevant result of the performance evaluation:
 

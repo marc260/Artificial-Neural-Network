@@ -83,6 +83,25 @@ To get the accuracy we do:
 
 This means that in new observations, where we did not train the ANN we get an accuracy of __84.2%!!__
 
+#### Predicting a single new observation
+
+This time a single new observation was entered as the following:
+
+```
+Country:        France  #encoded as 0, 0
+Credit Score:   600
+Gender:         Male    #encoded as 1
+Age:            40
+Tenure:         3 years
+Balance:        $60000
+# of Products:  2
+Credit card ?:  Yes     #encoded as 1
+Active?:        Yes     #encoded as 1
+Salary:         $50000
+```
+
+The prediction was that such costumer would __not__ leave the bank.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

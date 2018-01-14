@@ -102,6 +102,26 @@ Salary:         $50000
 
 The prediction was that such costumer would __not__ leave the bank.
 
+#### K-fold cross validation
+
+Apparently, when running [ann.py](ann.py) multiple times we get different accuracies ranging from 82% to 87%. To avoid that [ann-k-fold.py](ann-k-fold.py) comes into play. 
+
+Relevant result of the performance evaluation:
+
+```python
+[ 0.86624999  0.85625     0.83124999  0.8275      0.86124999  0.83125
+  0.85874999  0.84124999  0.82        0.85124999]
+```
+
+The one final relevant result will then be the mean of the 10 accuracies obtained above:
+
+```python
+(0.86624999 + 0.85625 + 0.83124999 + 0.8275 + 0.86124999 +
+ 0.83125 + 0.85874999 + 0.84124999 + 0.82 + 0.85124999) / 10 = 0.844499994
+```
+
+Mean = __84.45%__
+Variance = 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

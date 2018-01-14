@@ -7,9 +7,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from sklearn.metrics import confusion_matrix
-import keras
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import cross_val_score
 
 # Data Preprocessing
 
@@ -46,9 +47,6 @@ x_test = sc.transform(x_test)
 # Improving the ANN using k-fold cross validation
 
 # Evaluating the ANN
-from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import cross_val_score
-
 # Building classifier with the same architecture as ann.py
 def build_classifier():
     # Initializing the ANN, no layers yet
@@ -79,9 +77,17 @@ def build_classifier():
 # Create global classifier that will be trained in k-fold cross validation (same batch_size and epochs as ann.py)
 classifier = KerasClassifier(build_fn= build_classifier, batch_size= 10, epochs= 100)
 
-# Contains the 10 accuracy values returned by cross_val_score
-# estimator = object to use to fir the data
-# X= data to fit, y= target variable to try to predict
-# cv= number of train test fold you want to create
-# n_jobs= number of CPUs to use, -1 = all CPUs parallel computations
-accuracies = cross_val_score(estimator= classifier, X= x_train, y= y_train, cv= 10, n_jobs= -1)
+class run():
+    def __init__(self):
+        # Contains the 10 accuracy values returned by cross_val_score
+        # estimator = object to use to fir the data
+        # X= data to fit, y= target variable to try to predict
+        # cv= number of train test fold you want to create
+        # n_jobs= number of CPUs to use, -1 = all CPUs parallel computations
+        accuracies = cross_val_score(estimator=classifier, X=x_train, y=y_train, cv=10, n_jobs=-1)
+        print(accuracies)
+        print(accuracies.mean()) #mean
+        print(accuracies.std()) #variance
+# Only way I've found to run parallel computations on Windows
+if __name__ == '__main__':
+    run()

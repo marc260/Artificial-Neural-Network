@@ -67,17 +67,16 @@ classifier.add(Dense(units= 1, kernel_initializer= 'uniform', activation= 'sigmo
 # loss function => logarithmic loss function, dependent variable has a binary outcome so, loss = 'binary_crossentropy'
 classifier.compile(optimizer= 'adam', loss = 'binary_crossentropy', metrics= ['accuracy'])
 
-# Fitting the ANN to the Training set
+# Fitt the ANN to the Training set
 # batch size => 10
 # number epoch => 100 (rounds)
 classifier.fit(x_train, y_train, batch_size= 10, epochs= 100)
 
-# Predicting the Test set results
+# Predict the Test set results
 # Returns the probability that the customers leave the bank
 y_pred = classifier.predict(x_test)
 # but we need only true or false (leaves or not)
 y_pred = (y_pred > 0.5)
-
 
 # Evaluate if the Logistic Regression model learned and understood
 # correctly the correlations in the training set
@@ -85,4 +84,25 @@ y_pred = (y_pred > 0.5)
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 
-# Compute the accuracy based on the test set
+'''single new observation
+Country:        France  #encoded as 0, 0
+Credit Score:   600
+Gender:         Male    #encoded as 1
+Age:            40
+Tenure:         3 years
+Balance:        $60000
+# of Products:  2
+Credit card ?:  Yes     #encoded as 1
+Active?:        Yes     #encoded as 1
+Salary:         $50000
+'''
+
+# Whole single prediction as a single array:
+# predict method expects a 2d array
+# np.array([[0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])
+# fit that array in the same scale as the x_train set was fitted on
+# sc.transform(np.array([[0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]]))
+
+# Predict the single new observation
+single_pred = classifier.predict(sc.transform(np.array([[0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+single_pred = (single_pred > 0.5) # as true or false

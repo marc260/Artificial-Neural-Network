@@ -111,19 +111,20 @@ In this case, it splits the training set into 10 fold, and the ANN is trained in
 Relevant result of the performance evaluation:
 
 ```python
-[ 0.86624999  0.85625     0.83124999  0.8275      0.86124999  0.83125
-  0.85874999  0.84124999  0.82        0.85124999]
+[ 0.84374999  0.83124999  0.83749999  0.825 0.87624999 
+0.835 0.8325 0.82874999  0.81625     0.865     ]
 ```
 
 The one final relevant result will then be the mean of the 10 accuracies obtained above:
 
 ```python
-(0.86624999 + 0.85625 + 0.83124999 + 0.8275 + 0.86124999 +
- 0.83125 + 0.85874999 + 0.84124999 + 0.82 + 0.85124999) / 10 = 0.844499994
+(sum) / 10 = 0.839124994837
 ```
 
 Mean = __84.45%__
-Variance = 
+
+Variance = __0.0173929754892__
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

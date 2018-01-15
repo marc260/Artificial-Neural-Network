@@ -123,7 +123,13 @@ The one final relevant result will then be the mean of the 10 accuracies obtaine
 
 Mean = __84.45%__
 
-Variance = __0.0173929754892__
+Variance = __0.0173929754892__ (small variance)
+
+### Dropout Regularization
+
+Dropout is the solution for reducing overfitting if needed. Overfitting is when the model was trained too much 
+on the training set, so much that it becomes much less efficient on the test set. It is noticeable when there 
+is a large difference of accuracy of training set vs the test set (high variance).  
 
 ## License
 

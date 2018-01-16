@@ -143,7 +143,8 @@ Dropout is implemented on [ann-dropout.py](ann-dropout.py). In this case the var
 
 ### Parameter Tuning
 
-Consist of finding the best values of the hyper parameters e.g. batch_size, epochs, etc.
+Consist of finding the best values of the hyper parameters e.g. batch_size, epochs, etc that return the best accuracy.
+Parameter Tuning with grid search is implemented on [ann-parem.py](ann-parem.py).
 
 ## License
 

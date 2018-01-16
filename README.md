@@ -125,6 +125,10 @@ Mean = __84.45%__
 
 Variance = __0.0173929754892__ (small variance)
 
+## Improving the ANN
+
+Two ways, Dropout Regularisation or Parameter Tuning.
+
 ### Dropout Regularization
 
 Dropout is the solution for reducing overfitting if needed. Overfitting is when the model was trained too much 
@@ -136,6 +140,10 @@ dependent on each other. Now the ANN learns multiple independent correlations in
 learning too much which in turn prevents overfitting.
 
 Dropout is implemented on [ann-dropout.py](ann-dropout.py). In this case the variance is really small so Dropout was not tested.
+
+### Parameter Tuning
+
+Consist of finding the best values of the hyper parameters e.g. batch_size, epochs, etc.
 
 ## License
 

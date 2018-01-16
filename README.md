@@ -131,6 +131,12 @@ Dropout is the solution for reducing overfitting if needed. Overfitting is when 
 on the training set, so much that it becomes much less efficient on the test set. It is noticeable when there 
 is a large difference of accuracy of training set vs the test set (high variance).  
 
+At each iteration of the training, some neurons of the ANN are randomly disabled, preventing them to being too 
+dependent on each other. Now the ANN learns multiple independent correlations in the data, preventing neurons from
+learning too much which in turn prevents overfitting.
+
+Dropout is implemented on [ann-dropout.py](ann-dropout.py).
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

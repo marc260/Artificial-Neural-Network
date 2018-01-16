@@ -135,7 +135,7 @@ At each iteration of the training, some neurons of the ANN are randomly disabled
 dependent on each other. Now the ANN learns multiple independent correlations in the data, preventing neurons from
 learning too much which in turn prevents overfitting.
 
-Dropout is implemented on [ann-dropout.py](ann-dropout.py).
+Dropout is implemented on [ann-dropout.py](ann-dropout.py). In this case the variance is really small so Dropout was not tested.
 
 ## License
 
